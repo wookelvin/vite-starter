@@ -1,11 +1,13 @@
 <template>
-  <div>About</div>
+  <div class="card rounded p-5 border rounded-lg bg-white">
+    <slot />
+  </div>
 </template>
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue'
 export default defineComponent({
-  name: 'About',
+  name: 'HelloWorld',
   props: {
     //msg: {
     //  type: String,

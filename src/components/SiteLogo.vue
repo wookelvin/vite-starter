@@ -1,5 +1,7 @@
 <template>
-  <div>rsvp.<strong>com</strong></div>
+  <div class="font-serif text-xl">
+    rsvp.<strong>com</strong>
+  </div>
 </template>
 
 <script lang="ts">

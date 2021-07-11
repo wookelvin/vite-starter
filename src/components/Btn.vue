@@ -1,7 +1,7 @@
 <template>
   <router-link
     :to="to"
-    class="ml-3 text-gray-400 hover:text-gray-700 hover:bg-gray-100 p-3 rounded transition text-sm"
+    class="p-2 bg-blue-700 text-white rounded hover:bg-blue-600 transition"
   >
     <slot />
   </router-link>
@@ -10,12 +10,12 @@
 <script lang="ts">
 import { ref, defineComponent } from 'vue'
 export default defineComponent({
-  name: 'SiteNavItem',
+  name: 'Btn',
   props: {
     to: {
       type: String,
-      required: true
-    }
+      default: '#'
+    } 
   },
   setup: () => {
     // const count = ref(0)
@@ -24,5 +24,9 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
+a{
+  display: inline-block !default;
+  text-align: center;
+}
 </style>
