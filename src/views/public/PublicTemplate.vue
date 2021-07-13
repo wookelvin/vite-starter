@@ -2,9 +2,12 @@
   <div class="py-4">
     <div class="container mx-auto px-2">
       <div class="flex justify-between items-center">
-        <a href="/">
+        <router-link
+          to="/"
+          class="ignore"
+        >
           <site-logo />
-        </a>
+        </router-link>
         <div>
           <site-nav-item to="/sign-in">
             Sign In
@@ -13,8 +16,10 @@
       </div>
     </div>
   </div>
-  <div class="container mx-auto px-2 mt-3">
-    <router-view />
+  
+  <router-view />
+  <div class="text-xs text-gray-400 mt-3 text-center py-2 bg-gray-700">
+    &copy; Copyright {{ (new Date()).getFullYear() }}. rsvp.com. All rights reserved.
   </div>
 </template>
 

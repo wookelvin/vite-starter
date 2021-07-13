@@ -1,8 +1,8 @@
 <template>
   <div class="p-3 bg-red-200 rounded flex items-center text-gray-800">
-    <ExclamationIcon class="h-5 w-5 mr-2 text-red-900" /> 
+    <ExclamationIcon class="h-5 w-5 mr-2 text-red-500" /> 
     <div>
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>

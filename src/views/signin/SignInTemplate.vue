@@ -3,11 +3,19 @@
     <div class="container p-2 mx-auto h-full flex items-center justify-center ">
       <div class="max-w-xs w-full">
         <div class="text-center py-2">
-          <site-logo />
+          <router-link
+            class="ignore text-5xl"
+            to="/"
+          >
+            <site-logo />
+          </router-link>
         </div>
         <Card>
           <router-view />
         </Card>
+        <div class="text-xs text-gray-500 mt-3 text-center">
+          &copy; Copyright {{ (new Date()).getFullYear() }}. rsvp.com. All rights reserved.
+        </div>
       </div>
     </div>
   </div>

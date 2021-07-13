@@ -15,4 +15,9 @@ export default defineComponent({
 html,body, #app{ 
   @apply h-full;
 }
+
+#app{ 
+  display:flex;
+  flex-direction: column;
+}
 </style>
