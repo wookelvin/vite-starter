@@ -3,7 +3,10 @@
     <h1 class="text-center text-xl font-serif py-2">
       Reset Password
     </h1>
-    <Alert v-if="error" :show-icon="false">
+    <Alert
+      v-if="error"
+      :show-icon="false"
+    >
       {{ error }}
     </Alert>
 
@@ -131,7 +134,7 @@ export default defineComponent({
     const email = ref('');
     const password = ref('');
     const code = computed(() => route.query.oobCode?.toString() || '');
-    const emailToReset = computed(() => route.query.email`?.toString() || '');
+    const emailToReset = computed(() => route.query.email?.toString() || '');
     const busy = ref(false);
     
 

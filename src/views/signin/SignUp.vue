@@ -3,7 +3,10 @@
     <h1 class="text-center text-xl font-serif py-2">
       Sign Up
     </h1>
-    <Alert v-if="error" :show-icon="false">
+    <Alert
+      v-if="error"
+      :show-icon="false"
+    >
       {{ error }}
     </Alert>
     <Form @valid-submit="onSubmit">

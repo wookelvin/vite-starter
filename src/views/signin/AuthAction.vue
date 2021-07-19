@@ -1,6 +1,9 @@
 <template>
-  <Alert v-if="error" :showIcon="false">
-    {{error}}
+  <Alert
+    v-if="error"
+    :show-icon="false"
+  >
+    {{ error }}
   </Alert>
 </template>
 
