@@ -94,12 +94,14 @@
   </div>
 </template>
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue'
+import { computed, defineComponent, onMounted, ref } from 'vue'
 import FormInput from '@/components/FormInput.vue';
 import Btn from '@/components/Btn.vue';
 import Alert from '@/components/Alert.vue';
 import Form from '@/components/Form.vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import firebase from "firebase/app";
+import 'firebase/auth';
 
 export default defineComponent({
   name: 'ResetPassword',
@@ -116,6 +118,7 @@ export default defineComponent({
     const tokenCheckSuccess = ref(true);
     const complete = ref(false);
     const submittedPasswordReset = ref(false);
+    const router = useRouter();
 
     tokenCheckSuccess.value = token.value === '1';
 
@@ -134,6 +137,13 @@ export default defineComponent({
     const onChange = () => { 
 
     };
+
+    onMounted(()=>{ 
+        if (firebase.auth().currentUser){ 
+          router.push('/member');
+        }
+    });
+
     
     return { 
       error, 

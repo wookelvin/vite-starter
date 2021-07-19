@@ -6,7 +6,7 @@ import FirebaseService from './services/Firebase.service';
 
 (async () => { 
   FirebaseService.init();
-  FirebaseService.waitForUserCheck();
+  await FirebaseService.waitForUserCheck();
 
   createApp(App)
     .use(router)

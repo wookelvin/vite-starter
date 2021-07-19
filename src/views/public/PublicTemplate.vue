@@ -16,9 +16,8 @@
       </div>
     </div>
   </div>
-  
   <router-view />
-  <div class="text-xs text-gray-400 mt-3 text-center py-2 bg-gray-700">
+  <div class="text-xs text-gray-400 text-center py-2 bg-gray-700">
     &copy; Copyright {{ (new Date()).getFullYear() }}. rsvp.com. All rights reserved.
   </div>
 </template>

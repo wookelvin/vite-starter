@@ -29,11 +29,14 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import FormInput from '@/components/FormInput.vue';
 import Btn from '@/components/Btn.vue';
 import Alert from '@/components/Alert.vue';
 import Form from '@/components/Form.vue';
+import { useRouter } from 'vue-router';
+import firebase from "firebase/app";
+import 'firebase/auth';
 
 export default defineComponent({
   name: 'SignUp',
@@ -48,6 +51,14 @@ export default defineComponent({
     const onSubmit = () =>{ 
 
     };
+    const router = useRouter();
+
+    onMounted(()=>{ 
+        if (firebase.auth().currentUser){ 
+          router.push('/member');
+        }
+    });
+
     return { 
       error, 
       onSubmit,

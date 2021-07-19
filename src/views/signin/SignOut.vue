@@ -1,7 +1,7 @@
 <template>
   <h1 class="text-center text-xl font-serif py-2">
     Signing Out
-    <BusyIcon class="mt-3"/>
+    <BusyIcon class="mt-3 block"/>
   </h1>
 </template>
 <script lang="ts">
@@ -33,8 +33,9 @@ export default defineComponent({
 
     onMounted(()=>{ 
       setTimeout(async () => { 
-        if (FirebaseService.user){
+        if (firebase.auth().currentUser){
           await firebase.auth().signOut();
+          FirebaseService.user = null;
         }
         router.push('/sign-in');
       }, 1000);

@@ -48,7 +48,7 @@
   </busy-screen>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent, nextTick, onMounted, ref } from 'vue'
 import FormInput from '@/components/FormInput.vue';
 import Btn from '@/components/Btn.vue';
 import Form from '@/components/Form.vue';
@@ -71,7 +71,7 @@ export default defineComponent({
     const email = ref('');
     const password = ref('');
     const error = ref('');
-    const busy = ref(true);
+    const busy = ref(false);
     const router = useRouter();
 
     const onSubmit = async () => { 
@@ -80,7 +80,7 @@ export default defineComponent({
       busy.value = true;
 
       try{
-        const userCredential = await firebase.auth().signInWithEmailAndPassword(email.value, password.value);
+        await firebase.auth().signInWithEmailAndPassword(email.value, password.value);
         router.push('/member')
       }catch(err){ 
         error.value = err.message;
@@ -90,7 +90,9 @@ export default defineComponent({
     };
 
     onMounted(()=>{ 
-      console.log(' sign in mounted');
+        if (firebase.auth().currentUser){ 
+          router.push('/member');
+        }
     });
 
     return { 

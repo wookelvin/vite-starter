@@ -1,9 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-  /***
-   * Public Areas
-   */
   { 
     path: '/', 
     component: () => import ('./views/public/PublicTemplate.vue'),
@@ -12,11 +9,6 @@ const routes = [
         path: '', 
         name: 'Home',
         component: () => import ('./views/public/Home.vue'), 
-      },
-      {
-        path: 'ui', 
-        name: 'UI',
-        component: () => import ('./views/public/UI.vue'), 
       },
     ]
   },
@@ -56,7 +48,7 @@ const routes = [
     children:[
       {
         path: '', 
-        name: 'Home',
+        name: 'Member Home',
         component: () => import ('./views/member/Home.vue'), 
       }
     ]

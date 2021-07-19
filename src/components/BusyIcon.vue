@@ -2,9 +2,9 @@
   <div 
     class="busy-icon"
     :style="{
-        'border-color': color, 
-        'border-top-color': color, 
-        'border-bottom-color': color
+      'border-top-color': color, 
+      'border-right-color': color, 
+      'border-bottom-color': color
     }"
 />
 </template>
@@ -32,22 +32,24 @@ export default defineComponent({
 
 <style scoped>
 .busy-icon {
-
   display: block;
-  height: 30px;
-  width: 30px;
+  top: 50%;
+  left: 50%;
+  height: 50px;
+  width: 50px;
   margin-left:auto;
   margin-right:auto;
-  /* margin: -25px 0 0 -25px; */
-  border: 3px rgba(0, 0, 0, 0.1) solid;
-  border-top: 3px black solid;
-  border-bottom: 3px black solid;
+  //margin: -25px 0 0 -25px;
+  border: 4px rgba(0, 0, 0, 0.25) solid;
+  border-top: 4px black solid;
+  border-right: 4px black solid;
+  border-bottom: 4px black solid;
   border-radius: 50%;
-  -webkit-animation: spin1 1s infinite linear;
-          animation: spin1 1s infinite linear;
+  -webkit-animation: spin3 1s infinite linear;
+          animation: spin3 1s infinite linear;
 }
 
-@-webkit-keyframes spin1 {
+@-webkit-keyframes spin3 {
   from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
@@ -57,7 +59,7 @@ export default defineComponent({
             transform: rotate(359deg);
   }
 }
-@keyframes spin1 {
+@keyframes spin3 {
   from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
