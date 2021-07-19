@@ -9,3 +9,15 @@ a:not(.ignore){
     @apply text-blue-600 underline;
   }
 }
+
+form .form-group {
+  .form-error { 
+    display: none;
+  }
+}
+
+form.needs-validation .form-group.form-group-error {
+  .form-error{ 
+    display: block;
+  }
+}

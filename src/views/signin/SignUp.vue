@@ -5,18 +5,20 @@
   <Alert v-if="error">
     {{ error }}
   </Alert>
-  <div class="grid grid-flow-col grid-cols-2 gap-4">
-    <FormInputText l="First Name" />
-    <FormInputText l="Last Name" />
-  </div>
-  
-  <FormInputText l="Email" />
-  <FormInputPassword l="Password" />
-  <div class="mt-2">
-    <Btn class="block">
-      Sign Up
-    </Btn>
-  </div>
+  <Form @valid-submit="onSubmit">
+    <div class="grid grid-flow-col grid-cols-2 gap-4">
+      <FormInput l="First Name" required />
+      <FormInput l="Last Name" required />
+    </div>
+    
+    <FormInput l="Email" type="email" required/>
+    <FormInput l="Password" type="password" required/>
+    <div class="mt-2">
+      <Btn class="block" type="submit">
+        Sign Up
+      </Btn>
+    </div>
+  </Form>
   <div class="text-center mt-2">
     <router-link
       to="/sign-in"
@@ -28,22 +30,28 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import FormInputText from '@/components/FormInputText.vue';
-import FormInputPassword from '@/components/FormInputPassword.vue';
+import FormInput from '@/components/FormInput.vue';
 import Btn from '@/components/Btn.vue';
 import Alert from '@/components/Alert.vue';
+import Form from '@/components/Form.vue';
 
 export default defineComponent({
   name: 'SignUp',
   components:{
-    FormInputText,
-    FormInputPassword,
+    FormInput,
     Btn, 
     Alert,
+    Form,
   },
   setup() {
     const error = ref('');
-    return { error };
+    const onSubmit = () =>{ 
+
+    };
+    return { 
+      error, 
+      onSubmit,
+    };
   },
 })
 </script>

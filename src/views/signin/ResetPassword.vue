@@ -10,15 +10,17 @@
     <p class="text-center my-3">
       Please enter your email address. An email will be sent to your inbox with farther instructions.
     </p>
-    <FormInputText l="Email" />
-    <div class="mt-2">
-      <Btn
-        class="block"
-        @click.stop.prevent="onSubmitRequestPasswordReset()"
-      >
-        Submit
-      </Btn>
-    </div>
+    <Form @valid-submit="onSubmitRequestPasswordReset()">
+      <FormInput l="Email" type="email" required />
+      <div class="mt-2">
+        <Btn
+          class="block"
+          type="submit"
+        >
+          Submit
+        </Btn>
+      </div>
+    </Form>
 
     <div class="text-center mt-2">
       <router-link
@@ -38,26 +40,31 @@
     <p class="text-center my-3">
       Please enter a new password to set for your account
     </p>
-    <FormInputPassword
-      l="New Password"
-      class="mt-4"
-    />
-    <div class="mt-2">
-      <Btn
-        class="block"
-        @click.stop.prevent="onSubmitNewPassword()"
-      >
-        Submit
-      </Btn>
-      <div class="text-center mt-2">
-        <router-link
-          to="/sign-in"
-          class="text-sm"
+    <Form @valid-submit="onSubmitNewPassword()">
+      <FormInput
+        l="New Password"
+        class="mt-4"
+        type="password"
+        minlength="5"
+        required
+      />
+      <div class="mt-2">
+        <Btn
+          class="block"
+          type="submit"
         >
-          Back to Sign In
-        </router-link>
+          Submit
+        </Btn>
+        <div class="text-center mt-2">
+          <router-link
+            to="/sign-in"
+            class="text-sm"
+          >
+            Back to Sign In
+          </router-link>
+        </div>
       </div>
-    </div>
+    </Form>
   </div>
   <div v-else-if="token && !tokenCheckSuccess">
     <p class="text-center my-3">
@@ -88,19 +95,19 @@
 </template>
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue'
-import FormInputText from '@/components/FormInputText.vue';
-import FormInputPassword from '@/components/FormInputPassword.vue';
+import FormInput from '@/components/FormInput.vue';
 import Btn from '@/components/Btn.vue';
 import Alert from '@/components/Alert.vue';
+import Form from '@/components/Form.vue';
 import { useRoute } from 'vue-router';
 
 export default defineComponent({
   name: 'ResetPassword',
   components:{
-    FormInputText,
-    FormInputPassword,
+    FormInput,
     Btn, 
     Alert,
+    Form,
   },
   setup() {
     const route = useRoute();
@@ -120,6 +127,13 @@ export default defineComponent({
       submittedPasswordReset.value = true;
       console.log('submitted');
     }
+
+    const onRequest = () => { 
+
+    };
+    const onChange = () => { 
+
+    };
     
     return { 
       error, 
@@ -128,7 +142,9 @@ export default defineComponent({
       complete, 
       submittedPasswordReset,
       onSubmitNewPassword,
-      onSubmitRequestPasswordReset
+      onSubmitRequestPasswordReset, 
+      onRequest, 
+      onChange,
     };
   },
 })

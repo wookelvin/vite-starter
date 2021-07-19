@@ -5,19 +5,37 @@
   <Alert v-if="error">
     {{ error }}
   </Alert>
-  <FormInputText l="Email" />
-  <FormInputPassword l="Password">
-    <template #right-label>
-      <router-link to="/reset-password">
-        Forget?
-      </router-link>
-    </template>
-  </FormInputPassword>
-  <div class="mt-2">
-    <Btn class="block">
-      Submit
-    </Btn>
-  </div>
+  <Form
+    ref="form"
+    @submit="onSubmit"
+  >
+    <FormInput
+      l="Email"
+      type="email"
+      v-model="email"
+      required
+    />
+    <FormInput
+      l="Password"
+      type="password"
+      v-model="password"
+      required
+    >
+      <template #right-label>
+        <router-link to="/reset-password" tabindex="10">
+          Forget?
+        </router-link>
+      </template>
+    </FormInput>
+    <div class="mt-2">
+      <Btn
+        class="block"
+        type="submit"
+      >
+        Submit
+      </Btn>
+    </div>
+  </Form>
   <div class="text-center mt-2">
     <router-link
       to="/sign-up"
@@ -29,22 +47,35 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import FormInputText from '@/components/FormInputText.vue';
-import FormInputPassword from '@/components/FormInputPassword.vue';
+import FormInput from '@/components/FormInput.vue';
 import Btn from '@/components/Btn.vue';
+import Form from '@/components/Form.vue';
 import Alert from '@/components/Alert.vue';
+
 
 export default defineComponent({
   name: 'SignIn',
   components:{
-    FormInputText,
-    FormInputPassword,
+    FormInput,
     Btn, 
+    Form,
     Alert,
   },
   setup() {
+    const email = ref('');
+    const password = ref('');
     const error = ref('');
-    return { error };
+
+    const onSubmit = () => { 
+      error.value = '';
+    };
+
+    return { 
+      error, 
+      onSubmit, 
+      email, 
+      password
+    };
   },
 })
 </script>
