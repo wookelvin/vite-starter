@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.2",
+    "firebase": "^8.7.1",
     "heroicons-vue3": "^1.0.1",
     "postcss-import": "^14.0.2",
     "vue": "^3.0.5",

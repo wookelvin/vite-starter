@@ -8,7 +8,7 @@
 import { ref, defineComponent } from 'vue'
 export default defineComponent({
   name: 'Form',
-  setup: (props, context) => {
+  setup: (props, { emit }) => {
 
     const form = ref<HTMLFormElement | null>(null);
 
@@ -19,7 +19,7 @@ export default defineComponent({
 
       form.value.classList.add('needs-validation');
       if (form.value.checkValidity()){
-        context.emit('validSubmit');
+        emit('validSubmit');
       }
     };
 

@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
+  /***
+   * Public Areas
+   */
   { 
     path: '/', 
     component: () => import ('./views/public/PublicTemplate.vue'),
@@ -17,6 +20,10 @@ const routes = [
       },
     ]
   },
+
+  /**
+   * Auth Sign In Screens
+   */
   { 
     path: '/', 
     component: () => import ('./views/signin/SignInTemplate.vue'),
@@ -36,6 +43,22 @@ const routes = [
         name: 'Reset Password',
         component: () => import ('./views/signin/ResetPassword.vue'), 
       },
+      { 
+        path: 'sign-out', 
+        name: 'Sign Out', 
+        component: () => import ('./views/signin/SignOut.vue')
+      }
+    ]
+  },
+  { 
+    path: '/member', 
+    component: () => import ('./views/member/MemberTemplate.vue'),
+    children:[
+      {
+        path: '', 
+        name: 'Home',
+        component: () => import ('./views/member/Home.vue'), 
+      }
     ]
   },
   { 

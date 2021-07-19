@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, ref } from 'vue'
+import { computed, defineComponent, onMounted, ref, watch } from 'vue'
 export default defineComponent({
   name: 'FormInput',
   props:{
@@ -44,9 +44,14 @@ export default defineComponent({
     minlength: { 
       type: String,
       default: '', 
+    }, 
+    modelValue: { 
+      type: String, 
+      default: ''
     }
   },
-  setup: () => {
+  emits:['update:modelValue'],
+  setup: (props, { emit }) => {
     const input = ref<HTMLInputElement|null>(null);
     const value = ref('');
     const error = ref('');
@@ -54,6 +59,12 @@ export default defineComponent({
     const getErrorMessage = () => { 
       error.value = input.value?.validationMessage || '';
     }
+
+    watch(() => props.modelValue, () => { value.value = props.modelValue });
+
+    watch(value, (currentValue)=>{ 
+      emit('update:modelValue', currentValue);
+    })
 
     onMounted(() => { 
       getErrorMessage();
