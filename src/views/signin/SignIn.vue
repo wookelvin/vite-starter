@@ -3,7 +3,10 @@
     <h1 class="text-center text-xl font-serif py-2">
       Sign In
     </h1>
-    <Alert v-if="error" :showIcon="false">
+    <Alert
+      v-if="error"
+      :show-icon="false"
+    >
       {{ error }}
     </Alert>
     <Form
@@ -23,7 +26,10 @@
         required
       >
         <template #right-label>
-          <router-link to="/reset-password" tabindex="10">
+          <router-link
+            to="/reset-password"
+            tabindex="10"
+          >
             Forget?
           </router-link>
         </template>

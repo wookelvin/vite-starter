@@ -6,7 +6,7 @@
       'border-right-color': color, 
       'border-bottom-color': color
     }"
-/>
+  />
 </template>
 
 <script lang="ts">

@@ -1,5 +1,8 @@
 <template>
-  <label class="mt-4 block relative form-group" :class="error?'form-group-error':''">
+  <label
+    class="mt-4 block relative form-group"
+    :class="error?'form-group-error':''"
+  >
     <div class="flex justify-between items-center">
       <div
         v-if="l"

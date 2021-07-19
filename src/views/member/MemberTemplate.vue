@@ -31,7 +31,7 @@ export default defineComponent({
     SiteLogo, 
     Card 
   },
-  name: 'Member Template',
+  name: 'MemberTemplate',
 })
 </script>
 

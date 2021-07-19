@@ -1,6 +1,10 @@
 <template>
-  <form @submit.stop.prevent="onSubmit" ref="form" novalidate>
-    <slot></slot>
+  <form
+    @submit.stop.prevent="onSubmit"
+    ref="form"
+    novalidate
+  >
+    <slot />
   </form>
 </template>
 
@@ -8,6 +12,7 @@
 import { ref, defineComponent } from 'vue'
 export default defineComponent({
   name: 'Form',
+  emits:['validSubmit'],
   setup: (props, { emit }) => {
 
     const form = ref<HTMLFormElement | null>(null);

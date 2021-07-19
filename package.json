@@ -4,7 +4,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "lint": "eslint --ext .js,.vue src --fix"
+    "lint": "eslint --fix --ext .js,.vue src "
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.2",

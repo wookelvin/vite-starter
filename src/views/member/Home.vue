@@ -1,8 +1,9 @@
 <template>
-  
   <h1>Member Home</h1>
   <div class="mt-3">
-  <Btn to="/sign-out">Sign Out</Btn>
+    <Btn to="/sign-out">
+      Sign Out
+    </Btn>
   </div>
 </template>
 

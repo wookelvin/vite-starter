@@ -11,7 +11,11 @@
       Please enter your email address. An email will be sent to your inbox with farther instructions.
     </p>
     <Form @valid-submit="onSubmitRequestPasswordReset()">
-      <FormInput l="Email" type="email" required />
+      <FormInput
+        l="Email"
+        type="email"
+        required
+      />
       <div class="mt-2">
         <Btn
           class="block"

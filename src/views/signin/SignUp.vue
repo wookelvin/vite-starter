@@ -7,14 +7,31 @@
   </Alert>
   <Form @valid-submit="onSubmit">
     <div class="grid grid-flow-col grid-cols-2 gap-4">
-      <FormInput l="First Name" required />
-      <FormInput l="Last Name" required />
+      <FormInput
+        l="First Name"
+        required
+      />
+      <FormInput
+        l="Last Name"
+        required
+      />
     </div>
     
-    <FormInput l="Email" type="email" required/>
-    <FormInput l="Password" type="password" required/>
+    <FormInput
+      l="Email"
+      type="email"
+      required
+    />
+    <FormInput
+      l="Password"
+      type="password"
+      required
+    />
     <div class="mt-2">
-      <Btn class="block" type="submit">
+      <Btn
+        class="block"
+        type="submit"
+      >
         Sign Up
       </Btn>
     </div>
