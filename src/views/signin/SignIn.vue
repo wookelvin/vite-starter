@@ -54,7 +54,7 @@
   </busy-screen>
 </template>
 <script lang="ts">
-import { defineComponent, nextTick, onMounted, ref } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import FormInput from '@/components/FormInput.vue';
 import Btn from '@/components/Btn.vue';
 import Form from '@/components/Form.vue';

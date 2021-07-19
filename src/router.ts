@@ -39,7 +39,12 @@ const routes = [
         path: 'sign-out', 
         name: 'Sign Out', 
         component: () => import ('./views/signin/SignOut.vue')
-      }
+      },
+      {
+        path: '__/auth/action', 
+        name: 'Auth Action', 
+        component: () => import('./views/signin/AuthAction.vue')
+      },
     ]
   },
   { 
