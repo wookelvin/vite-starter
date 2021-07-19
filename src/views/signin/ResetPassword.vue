@@ -131,7 +131,7 @@ export default defineComponent({
     const email = ref('');
     const password = ref('');
     const code = computed(() => route.query.oobCode?.toString() || '');
-    const emailToReset = computed(() => route.query.email?.toString() || '');
+    const emailToReset = computed(() => route.query.email`?.toString() || '');
     const busy = ref(false);
     
 
