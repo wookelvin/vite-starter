@@ -59,8 +59,12 @@ const routes = [
       {
         path: '', 
         name: 'Member Home',
-        component: () => import ('./views/member/Home.vue'), 
-        
+        component: () => import ('./views/member/Home.vue'),  
+      },
+      {
+        path: 'settings', 
+        name: 'Settings',
+        component: () => import ('./views/member/Settings.vue'),
       }
     ]
   },
