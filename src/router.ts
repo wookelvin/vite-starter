@@ -1,4 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
+import firebase from "firebase/app";
+import 'firebase/auth';
 
 const routes = [
   { 
@@ -50,11 +52,15 @@ const routes = [
   { 
     path: '/member', 
     component: () => import ('./views/member/MemberTemplate.vue'),
+    meta:{ 
+      signedInRequired: true,
+    },
     children:[
       {
         path: '', 
         name: 'Member Home',
         component: () => import ('./views/member/Home.vue'), 
+        
       }
     ]
   },
@@ -69,3 +75,12 @@ export const router = createRouter({
   history: createWebHistory(),
   routes, 
 });
+
+router.beforeEach((to, from, next) => { 
+  const signedIn = !!firebase.auth().currentUser;
+  if (to.meta.signedInRequired && !signedIn){
+    next('/sign-in');
+  }else{ 
+    next();
+  }
+})
